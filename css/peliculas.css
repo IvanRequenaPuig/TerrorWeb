@@ -1,0 +1,236 @@
+/* =====================================================================
+   PERSONAJES (personajes.html)  ·  usa las variables de style.css
+   ===================================================================== */
+.pf-nav {
+    position: fixed; inset: 0 0 auto; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .6rem clamp(1rem, 4vw, 4rem);
+    background: linear-gradient(#050404f2, transparent)
+}
+.pf-logo img { height: 80px; display: block; mix-blend-mode: screen }
+.pf-nav nav { display: flex; flex-wrap: wrap; gap: .2rem 1.4rem }
+.pf-nav nav a { color: var(--bone); text-decoration: none; text-shadow: 0 1px 10px #000; transition: .2s }
+.pf-nav nav a:hover, .pf-nav nav a.on { color: #ff3b3f }
+
+.pf {
+    --red: #ff2a2f;
+    position: relative; min-height: 100vh; overflow: hidden; isolation: isolate;
+    background: #050404; padding: 9rem 0 4rem
+}
+.pf-bg { position: absolute; inset: 0; z-index: -1 }
+.pfl {
+    position: absolute; inset: 0; background-size: cover; background-position: center top;
+    opacity: 0; transition: opacity .9s ease; filter: brightness(.6)
+}
+.pfl.on { opacity: 1 }
+.pf-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+        linear-gradient(90deg, rgba(5,4,4,.92) 0%, rgba(5,4,4,.55) 45%, rgba(5,4,4,.2) 100%),
+        linear-gradient(180deg, rgba(5,4,4,.5) 0%, transparent 18%, transparent 40%, #050404 78%),
+        radial-gradient(ellipse 220px 420px at 0% 10%, rgba(150,10,18,.5), transparent 70%),
+        radial-gradient(ellipse 280px 320px at 100% 100%, rgba(150,10,18,.5), transparent 70%)
+}
+.pf-wrap { position: relative; max-width: 1650px; margin: 0 auto; padding: 0 clamp(1rem, 3.5vw, 3.5rem) }
+
+/* hero */
+.pf-hero { max-width: 680px; margin-bottom: 2.4rem }
+.pf-crumb { margin: 0 0 1.2rem; font-family: 'Barlow', sans-serif; color: #e9e1cf }
+.pf-crumb a { color: inherit; text-decoration: none }
+.pf-crumb span { margin: 0 .6rem }
+.pf-crumb b { font-weight: 500; color: var(--red) }
+.pf-title { margin: 0; line-height: .92; transform: rotate(-3deg); transform-origin: left; filter: drop-shadow(0 5px 0 rgba(0,0,0,.7)) }
+.pf-title span {
+    display: block; font-family: 'Bebas Neue', sans-serif; font-style: italic;
+    font-size: clamp(2.4rem, 5vw, 4.4rem); color: #e9e1cf; text-transform: uppercase
+}
+.pf-title b {
+    display: block; font-family: 'Rubik Wet Paint', sans-serif; font-weight: 400;
+    font-size: clamp(3.4rem, 9.5vw, 8.4rem); text-transform: uppercase; color: var(--blood);
+    text-shadow: 0 0 26px rgba(179,18,26,.6);
+    background: linear-gradient(transparent 56%, rgba(0,0,0,.55) 56% 70%, transparent 70%)
+}
+.pf-sub { margin: 1.6rem 0 .8rem; font-family: 'Cinzel', serif; letter-spacing: .2em; font-size: clamp(.8rem, 1.3vw, 1.05rem); text-transform: uppercase; color: #efe3c6 }
+.pf-txt { margin: 0 0 1.6rem; max-width: 52ch; font-family: 'Barlow', sans-serif; line-height: 1.65; color: #e0d8c6; text-shadow: 0 2px 8px #000 }
+
+.pf-search input {
+    width: min(420px, 100%); padding: .85rem 1.2rem; color: var(--bone);
+    font-family: 'Special Elite', monospace; background: rgba(5,4,4,.7);
+    border: 2px solid var(--red); border-radius: 0;
+    box-shadow: 0 0 20px rgba(255,42,47,.35), inset 0 0 12px rgba(255,42,47,.2)
+}
+.pf-search input::placeholder { color: rgba(233,225,207,.55) }
+.pf-search input:focus { outline: none; background: rgba(40,8,10,.8) }
+
+/* barra + pestañas */
+.pf-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin: 0 0 1.4rem }
+.pf-bar h2 {
+    display: flex; align-items: center; gap: 1rem; margin: 0;
+    font-family: 'Cinzel', serif; font-weight: 400; font-size: 1.25rem; letter-spacing: .1em;
+    text-transform: uppercase; color: #e9e1cf; text-shadow: none
+}
+.pf-bar h2 i { width: 46px; height: 3px; background: var(--red); box-shadow: 0 0 10px var(--red) }
+.pf-bar h2 small { font-family: 'Barlow', sans-serif; font-size: .9rem; letter-spacing: 0; color: #b9ae98 }
+.pf-tabs { display: flex; flex-wrap: wrap; gap: .4rem 1.8rem }
+.pf-tabs button {
+    padding: .5rem 0; background: none; border: 0; border-bottom: 2px solid transparent;
+    font-family: 'Barlow', sans-serif; font-size: .95rem; color: #d9d0bd; cursor: pointer; transition: .25s
+}
+.pf-tabs button:hover { color: #fff }
+.pf-tabs button.on { color: var(--red); border-bottom-color: var(--red) }
+
+/* tarjetas */
+.pf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.4rem }
+.pf-c {
+    --rx: 0deg; --ry: 0deg;
+    position: relative; display: flex; flex-direction: column; padding: 0; text-align: left; cursor: pointer;
+    color: var(--bone); background: rgba(5,4,4,.88);
+    border: 1px solid rgba(233,225,207,.18); outline: 1px solid rgba(255,42,47,.12); outline-offset: -5px;
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform .25s, border-color .3s, box-shadow .3s;
+    animation: pfIn .6s both; animation-delay: calc(var(--i) * 60ms)
+}
+@keyframes pfIn { from { opacity: 0; transform: translateY(26px) } }
+.pf-c:hover, .pf-c:focus-visible { border-color: var(--ac); box-shadow: 0 0 30px -4px var(--ac), 0 20px 40px -14px #000 }
+.pf-ph {
+    position: relative; display: grid; place-items: center; aspect-ratio: 3/3.6; overflow: hidden;
+    background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--ac) 45%, #000), #050404 80%)
+}
+.pf-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(.85) contrast(1.1); transition: filter .4s, transform .6s }
+.pf-c:hover .pf-ph img, .pf-c:focus-visible .pf-ph img { filter: none; transform: scale(1.06) }
+.pf-ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(5,4,4,.92)); pointer-events: none }
+.pf-fb { padding: .8rem; text-align: center; font-family: 'Rubik Wet Paint', sans-serif; font-size: 2rem; line-height: 1; color: var(--ac); opacity: .6 }
+.pf-badge {
+    position: absolute; z-index: 2; top: .7rem; right: .7rem; padding: .2rem .7rem; font-size: 1.3rem; line-height: 1.3;
+    background: rgba(5,4,4,.75); border: 1px solid var(--ac); border-radius: 50%
+}
+.pf-info { padding: .9rem 1rem 1.1rem }
+.pf-info h3 { margin: 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(1.6rem, 2vw, 2rem); letter-spacing: .06em; line-height: 1.05; text-transform: uppercase; color: #eee8da }
+.pf-info small { display: block; margin: .15rem 0 .6rem; font-family: 'Cinzel', serif; font-size: .72rem; letter-spacing: .08em; color: #b9ae98 }
+.pf-skulls { font-size: .95rem; letter-spacing: .15em; color: #4a3a3a }
+.pf-skulls b { font-weight: 400; color: var(--ac); text-shadow: 0 0 8px var(--ac) }
+.pf-empty { text-align: center; padding: 3rem 1rem; color: #d9d0bd }
+
+/* expediente */
+#pf-modal { position: fixed; inset: 0; z-index: 400; display: grid; place-items: center; padding: 1rem; background: rgba(0,0,0,.9); animation: pfFade .3s }
+#pf-modal[hidden] { display: none }
+@keyframes pfFade { from { opacity: 0 } }
+.pf-box {
+    --ac: #b3121a;
+    position: relative; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    width: min(1000px, 100%); max-height: 92vh; overflow: auto;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--ac) 22%, #0c0607), #0c0607 60%);
+    border: 2px solid var(--ac); box-shadow: 0 0 60px -10px var(--ac)
+}
+.pf-x { position: absolute; z-index: 5; top: .6rem; right: .9rem; background: none; border: 0; color: var(--bone); font-size: 1.4rem }
+.pf-nv {
+    position: absolute; z-index: 5; top: 50%; transform: translateY(-50%); width: 42px; height: 64px;
+    background: #000b; border: 0; color: #fff; font-size: 2rem
+}
+.pf-nv.l { left: 0 } .pf-nv.r { right: 0 }
+.pf-nv:hover { background: var(--blood) }
+.pf-mimg { position: relative; display: grid; place-items: center; min-height: 380px; overflow: hidden; background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--ac) 45%, #000), #050404 80%) }
+.pf-mimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top }
+.pf-mimg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, #0c0607 100%) }
+#pf-mfb { font-family: 'Rubik Wet Paint', sans-serif; font-size: 3rem; text-align: center; padding: 1rem; color: var(--ac); opacity: .5 }
+.pf-minfo { padding: 2.6rem 2.8rem 2.4rem 1.6rem }
+.pf-mtag { margin: 0 0 .4rem; font-family: 'Cinzel', serif; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--ac) }
+.pf-minfo h3 { margin: 0; font-family: 'Rubik Wet Paint', sans-serif; font-size: clamp(2.2rem, 4.4vw, 3.6rem); line-height: 1; color: var(--ac); text-shadow: 0 0 24px color-mix(in srgb, var(--ac) 60%, transparent) }
+.pf-mrole { margin: .5rem 0 1rem; font-family: 'Cinzel', serif; letter-spacing: .1em; color: #efe3c6 }
+.pf-mdesc { margin: 0 0 1.2rem; font-family: 'Barlow', sans-serif; font-size: 1.02rem; line-height: 1.65; color: #e0d8c6 }
+.pf-facts { display: grid; grid-template-columns: auto 1fr; gap: .35rem 1rem; margin: 0 0 1.4rem; font-family: 'Barlow', sans-serif; font-size: .92rem }
+.pf-facts dt { margin: 0; color: var(--ac) } .pf-facts dd { margin: 0; color: #d9d0bd }
+.pf-stat { display: grid; grid-template-columns: 110px 1fr; align-items: center; gap: .8rem; margin-bottom: .55rem; font-family: 'Barlow', sans-serif; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: #cfc7b6 }
+.pf-stat div { height: 8px; background: #1c0b0d }
+.pf-stat i { display: block; height: 100%; width: 0; background: var(--ac); box-shadow: 0 0 10px var(--ac); transition: width .9s cubic-bezier(.2,.8,.2,1) }
+
+@media (max-width: 991px) {
+    .pf { padding-top: 7.5rem }
+    .pf-logo img { height: 56px }
+    .pf-nav nav { display: none }
+    .pf-box { grid-template-columns: 1fr }
+    .pf-mimg { min-height: 280px }
+    .pf-mimg::after { background: linear-gradient(transparent 60%, #0c0607) }
+    .pf-minfo { padding: 1.4rem 1.4rem 2rem }
+}
+@media (prefers-reduced-motion: reduce) {
+    .pf-c, .pfl, #pf-modal, .pf-stat i { animation: none !important; transition: none !important }
+}
+
+
+/* =====================================================================
+   PANTALLA DE CARGA (#pf-load)
+   ===================================================================== */
+.pf-lock { overflow: hidden }
+#pf-load { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; overflow: hidden; background: #000; cursor: pointer }
+#pf-load.gone { display: none }
+
+/* puertas */
+.pfl-door { position: absolute; top: 0; bottom: 0; width: 50.2%; background: radial-gradient(ellipse at 100% 50%, #1a0507, #030202 70%); transition: transform 1.3s cubic-bezier(.7, 0, .2, 1) }
+.pfl-door.l { left: 0; border-right: 3px solid #5a0a0f; box-shadow: inset -30px 0 60px rgba(179, 18, 26, .25) }
+.pfl-door.r { right: 0; border-left: 3px solid #5a0a0f; background: radial-gradient(ellipse at 0% 50%, #1a0507, #030202 70%); box-shadow: inset 30px 0 60px rgba(179, 18, 26, .25) }
+#pf-load.open .pfl-door.l { transform: translateX(-102%) }
+#pf-load.open .pfl-door.r { transform: translateX(102%) }
+#pf-load.open { background: transparent; pointer-events: none }
+
+/* goteo de sangre */
+.pfl-drips { position: absolute; inset: 0 0 auto; height: 100%; pointer-events: none; z-index: 2 }
+.pfl-drips i { position: absolute; top: 0; left: var(--x); width: 9px; height: 0; background: linear-gradient(#7a0a10, #b3121a); border-radius: 0 0 6px 6px; animation: pflDrip var(--d) ease-in infinite }
+.pfl-drips i::after { content: ""; position: absolute; left: -2px; bottom: -7px; width: 13px; height: 13px; background: #b3121a; border-radius: 50% 50% 50% 50% / 35% 35% 65% 65% }
+@keyframes pflDrip { 0% { height: 0; opacity: 1 } 70% { height: var(--h); opacity: 1 } 100% { height: calc(var(--h) + 40vh); opacity: 0 } }
+
+/* foco que parpadea */
+.pfl-lamp { position: absolute; top: -10%; left: 50%; width: 80vmin; height: 80vmin; transform: translateX(-50%); z-index: 1; pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 70, 50, .28), rgba(179, 18, 26, .1) 40%, transparent 68%); animation: pflFlick 3.2s infinite }
+@keyframes pflFlick { 0%, 18%, 22%, 48%, 52%, 100% { opacity: 1 } 20% { opacity: .1 } 24% { opacity: .6 } 50% { opacity: 0 } 76% { opacity: .85 } 78% { opacity: .15 } }
+
+/* contenido */
+.pfl-c { position: relative; z-index: 3; width: min(560px, 88vw); text-align: center; transition: opacity .5s }
+.pfl-kick { margin: 0 0 .6rem; font-family: 'Cinzel', serif; letter-spacing: .4em; font-size: .75rem; text-transform: uppercase; color: var(--blood) }
+.pfl-title { margin: 0 0 1.8rem; line-height: .92; transform: rotate(-3deg); animation: pflShake 4s infinite }
+.pfl-title span { display: block; font-family: 'Bebas Neue', sans-serif; font-style: italic; font-size: clamp(1.8rem, 5vw, 3rem); color: #e9e1cf; text-transform: uppercase }
+.pfl-title b { display: block; font-family: 'Rubik Wet Paint', sans-serif; font-weight: 400; font-size: clamp(3rem, 11vw, 6.4rem); text-transform: uppercase; color: var(--blood); text-shadow: 0 0 26px rgba(179, 18, 26, .7), 0 5px 0 #000 }
+@keyframes pflShake { 0%, 90%, 100% { transform: rotate(-3deg) } 92% { transform: rotate(-3deg) translateX(-5px) skewX(5deg) } 94% { transform: rotate(-3deg) translateX(6px) } 96% { transform: rotate(-3deg) translateX(-2px) skewX(-4deg) } }
+.pfl-msg { min-height: 1.6em; margin: 0 0 1rem; font-family: 'Special Elite', monospace; font-size: 1.05rem; color: #d9d0bd; animation: pflBlink 1.4s steps(2) infinite }
+@keyframes pflBlink { 50% { opacity: .55 } }
+.pfl-bar { height: 12px; background: #1c0b0d; border: 1px solid #3a0a0d; overflow: hidden; box-shadow: 0 0 20px rgba(179, 18, 26, .35) }
+.pfl-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #5a0a0f, #ff2a2f); box-shadow: 0 0 14px #ff2a2f; animation: pflBeat .9s infinite }
+@keyframes pflBeat { 0%, 100% { filter: brightness(1) } 15% { filter: brightness(1.8) } 30% { filter: brightness(1) } 45% { filter: brightness(1.5) } }
+.pfl-pct { margin: .8rem 0 0; font-family: 'Rubik Wet Paint', sans-serif; font-size: 2rem; color: #ff2a2f; animation: pflThump .9s infinite }
+@keyframes pflThump { 0%, 100% { transform: scale(1) } 15% { transform: scale(1.18) } 30% { transform: scale(1) } 45% { transform: scale(1.1) } }
+.pfl-skip { display: block; margin-top: 1.2rem; font-family: 'Barlow', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: rgba(233, 225, 207, .4) }
+
+/* "luces fuera": todo se apaga y aparecen ojos en la oscuridad */
+#pf-load.dark .pfl-c, #pf-load.dark .pfl-lamp, #pf-load.dark .pfl-drips { opacity: 0; transition: opacity .15s }
+#pf-load.open .pfl-c, #pf-load.open .pfl-eyes, #pf-load.open .pfl-drips { opacity: 0; transition: opacity .3s }
+.pfl-eyes { position: absolute; inset: 0; z-index: 4; pointer-events: none }
+.pfl-eyes i { position: absolute; width: 14px; height: 7px; border-radius: 50%; background: #ff2a2f; opacity: 0; box-shadow: 0 0 14px 4px rgba(255, 42, 47, .8), 22px 0 0 0 #ff2a2f, 22px 0 14px 4px rgba(255, 42, 47, .8) }
+.pfl-eyes i:nth-child(1) { left: 18%; top: 62% } .pfl-eyes i:nth-child(2) { left: 74%; top: 30% }
+.pfl-eyes i:nth-child(3) { left: 46%; top: 80% } .pfl-eyes i:nth-child(4) { left: 82%; top: 70% }
+#pf-load.dark .pfl-eyes i { animation: pflEye 1.1s forwards }
+#pf-load.dark .pfl-eyes i:nth-child(2) { animation-delay: .25s } #pf-load.dark .pfl-eyes i:nth-child(3) { animation-delay: .5s } #pf-load.dark .pfl-eyes i:nth-child(4) { animation-delay: .7s }
+@keyframes pflEye { 0% { opacity: 0 } 20%, 55% { opacity: 1 } 62% { opacity: 0 } 70%, 100% { opacity: 1 } }
+
+@media (prefers-reduced-motion: reduce) {
+    .pfl-drips i, .pfl-lamp, .pfl-title, .pfl-msg, .pfl-bar i, .pfl-pct { animation: none !important }
+    .pfl-door { transition-duration: .01s }
+}
+
+
+/* =====================================================================
+   EXTRAS (ordenar, botón de tráiler)
+   ===================================================================== */
+.pf-tools { display: flex; flex-wrap: wrap; gap: .8rem }
+.pf-sortw select { height: 100%; padding: .85rem 1rem; color: var(--bone); font-family: 'Special Elite', monospace; background: rgba(5,4,4,.7); border: 2px solid var(--red); border-radius: 0 }
+.pf-sortw select option { background: #0c0607 }
+.pf-trailer { display: inline-flex; align-items: center; gap: .8rem; margin-top: 1.4rem; padding: .65rem 1.6rem .65rem 1.2rem; font-family: 'Bebas Neue', sans-serif; font-style: italic; font-size: 1.3rem; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: linear-gradient(90deg, var(--ac), rgba(0,0,0,.2)); border: 2px solid var(--ac); cursor: pointer; transition: .25s }
+.pf-trailer::before { content: ""; border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent #fff }
+.pf-trailer:hover { filter: brightness(1.3); transform: translateX(4px) }
+.pf-badge { border-radius: 0; font-family: 'Barlow', sans-serif; font-size: .85rem; font-weight: 600; padding: .15rem .6rem }
+
+/* carteles: formato vertical */
+.pf-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) }
+.pf-ph { aspect-ratio: 2/3 }
+.pf-ph img { filter: grayscale(.6) contrast(1.1) }
+.pf-badge { color: #ffd24a }
+.pf-mimg { min-height: 460px }

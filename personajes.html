@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personajes | Sangre y Celuloide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Special+Elite&family=Cinzel:wght@400;600;700&family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/personajes.css" rel="stylesheet">
+</head>
+<body class="pj-lock">
+
+  <!-- PANTALLA DE CARGA: puertas que se abren al terminar (clic o tecla para saltarla) -->
+  <div id="pj-load" role="status" aria-live="polite">
+    <div class="pjl-door l"></div><div class="pjl-door r"></div>
+    <div class="pjl-drips" aria-hidden="true">
+      <i style="--x:6%;--d:5s;--h:150px"></i><i style="--x:17%;--d:7s;--h:90px"></i><i style="--x:29%;--d:6s;--h:200px"></i>
+      <i style="--x:41%;--d:8s;--h:120px"></i><i style="--x:56%;--d:5.5s;--h:170px"></i><i style="--x:68%;--d:7.5s;--h:100px"></i>
+      <i style="--x:79%;--d:6.5s;--h:210px"></i><i style="--x:91%;--d:5s;--h:130px"></i>
+    </div>
+    <div class="pjl-lamp" aria-hidden="true"></div>
+    <div class="pjl-eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="pjl-c">
+      <p class="pjl-kick">Archivo restringido</p>
+      <h2 class="pjl-title" aria-label="Los personajes"><span>Los</span><b>Personajes</b></h2>
+      <p class="pjl-msg" id="pjl-msg">Abriendo el archivo...</p>
+      <div class="pjl-bar"><i id="pjl-fill"></i></div>
+      <p class="pjl-pct"><span id="pjl-n">0</span>%</p>
+      <small class="pjl-skip">Pulsa cualquier tecla para entrar</small>
+    </div>
+  </div>
+
+  <!-- cabecera sencilla (vuelve a las secciones de la home) -->
+  <header class="pj-nav">
+    <a class="pj-logo" href="index.html"><img src="img/terror-logo.png" alt="Sangre y Celuloide" onerror="this.outerHTML='<span class=&quot;brand&quot;>Sangre y Celuloide</span>'"></a>
+    <nav aria-label="Principal">
+      <a href="peliculas.html">Películas</a>
+      <a href="personajes.html" class="on">Personajes</a>
+      <a href="index.html#series">Series</a>
+      <a href="videojuegos.html">Videojuegos</a>
+      <a href="index.html#libros">Libros</a>
+      <a href="index.html#mapa">Mapa</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="pj" id="pj">
+    <div class="pj-bg" aria-hidden="true"><div class="pjl"></div><div class="pjl"></div></div>
+
+    <div class="pj-wrap">
+      <header class="pj-hero">
+        <p class="pj-crumb"><a href="index.html">Inicio</a> <span>&gt;</span> <b>Personajes</b></p>
+        <h1 class="pj-title" aria-label="Personajes"><span>Los</span><b>Personajes</b></h1>
+        <p class="pj-sub">Máscaras, cuchillas y sonrisas que no olvidarás.</p>
+        <p class="pj-txt">Los rostros del miedo, de los slashers clásicos a los demonios modernos. Pasa el ratón para
+          cambiar el escenario y pulsa una tarjeta para abrir su expediente.</p>
+        <label class="pj-search"><span class="visually-hidden">Buscar personaje</span>
+          <input id="pj-q" type="search" placeholder="Buscar personaje o saga..." autocomplete="off">
+        </label>
+      </header>
+
+      <div class="pj-bar">
+        <h2><i></i>Expedientes <small id="pj-count"></small></h2>
+        <nav class="pj-tabs" id="pj-tabs" aria-label="Categorías"></nav>
+      </div>
+
+      <div class="pj-grid" id="pj-grid" aria-live="polite"></div>
+      <p class="pj-empty" id="pj-empty" hidden>Nadie coincide con tu búsqueda. Prueba con otro nombre o cambia de categoría.</p>
+    </div>
+  </main>
+
+  <!-- expediente -->
+  <div id="pj-modal" hidden>
+    <div class="pj-box" role="dialog" aria-modal="true" aria-labelledby="pj-mn">
+      <button class="pj-x" id="pj-x" aria-label="Cerrar">✕</button>
+      <button class="pj-nv l" id="pj-pv" aria-label="Personaje anterior">‹</button>
+      <button class="pj-nv r" id="pj-nx" aria-label="Personaje siguiente">›</button>
+      <div class="pj-mimg"><span id="pj-mfb"></span><img id="pj-mi" alt=""></div>
+      <div class="pj-minfo">
+        <p class="pj-mtag" id="pj-mt"></p>
+        <h3 id="pj-mn"></h3>
+        <p class="pj-mrole" id="pj-mr"></p>
+        <p class="pj-mdesc" id="pj-md"></p>
+        <dl class="pj-facts" id="pj-mf"></dl>
+        <div class="pj-stats" id="pj-ms"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pie">
+    <p class="wet">Sangre y Celuloide</p><small>Proyecto de fans</small>
+  </footer>
+
+  <script src="js/personajes.js"></script>
+</body>
+</html>

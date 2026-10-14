@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Videojuegos | Sangre y Celuloide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Special+Elite&family=Cinzel:wght@400;600;700&family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/videojuegos.css" rel="stylesheet">
+</head>
+<body class="vg-lock">
+
+  <!-- PANTALLA DE CARGA: puertas que se abren al terminar (clic o tecla para saltarla) -->
+  <div id="vg-load" role="status" aria-live="polite">
+    <div class="vgl-door l"></div><div class="vgl-door r"></div>
+    <div class="vgl-drips" aria-hidden="true">
+      <i style="--x:6%;--d:5s;--h:150px"></i><i style="--x:17%;--d:7s;--h:90px"></i><i style="--x:29%;--d:6s;--h:200px"></i>
+      <i style="--x:41%;--d:8s;--h:120px"></i><i style="--x:56%;--d:5.5s;--h:170px"></i><i style="--x:68%;--d:7.5s;--h:100px"></i>
+      <i style="--x:79%;--d:6.5s;--h:210px"></i><i style="--x:91%;--d:5s;--h:130px"></i>
+    </div>
+    <div class="vgl-lamp" aria-hidden="true"></div>
+    <div class="vgl-eyes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="vgl-c">
+      <p class="vgl-kick">Nueva partida</p>
+      <h2 class="vgl-title" aria-label="Todos los videojuegos"><span>Todos los</span><b>Videojuegos</b></h2>
+      <p class="vgl-msg" id="vgl-msg">Abriendo el archivo...</p>
+      <div class="vgl-bar"><i id="vgl-fill"></i></div>
+      <p class="vgl-pct"><span id="vgl-n">0</span>%</p>
+      <small class="vgl-skip">Pulsa cualquier tecla para entrar</small>
+    </div>
+  </div>
+
+  <!-- cabecera sencilla (vuelve a las secciones de la home) -->
+  <header class="vg-nav">
+    <a class="vg-logo" href="index.html"><img src="img/terror-logo.png" alt="Sangre y Celuloide" onerror="this.outerHTML='<span class=&quot;brand&quot;>Sangre y Celuloide</span>'"></a>
+    <nav aria-label="Principal">
+      <a href="peliculas.html">Películas</a>
+      <a href="personajes.html">Personajes</a>
+      <a href="index.html#series">Series</a>
+      <a href="videojuegos.html" class="on">Videojuegos</a>
+      <a href="index.html#libros">Libros</a>
+      <a href="index.html#mapa">Mapa</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="vg" id="vg">
+    <div class="vg-bg" aria-hidden="true"><div class="vgl"></div><div class="vgl"></div></div>
+
+    <div class="vg-wrap">
+      <header class="vg-hero">
+        <p class="vg-crumb"><a href="index.html">Inicio</a> <span>&gt;</span> <b>Videojuegos</b></p>
+        <h1 class="vg-title" aria-label="Videojuegos"><span>Todos los</span><b>Videojuegos</b></h1>
+        <p class="vg-sub">Juega. Sobrevive. Siente el miedo.</p>
+        <p class="vg-txt">Los videojuegos de terror no solo se juegan, se sienten. Filtra por tipo de miedo, ordénalos como quieras y abre una ficha para ver su historia, sus plataformas y su tráiler.</p>
+        <div class="vg-tools"><label class="vg-search"><span class="visually-hidden">Buscar videojuego</span>
+          <input id="vg-q" type="search" placeholder="Buscar videojuego o estudio..." autocomplete="off">
+        </label>
+        <label class="vg-sortw"><span class="visually-hidden">Ordenar</span><select id="vg-sort"></select></label></div>
+      </header>
+
+      <div class="vg-bar">
+        <h2><i></i>Catálogo <small id="vg-count"></small></h2>
+        <nav class="vg-tabs" id="vg-tabs" aria-label="Categorías"></nav>
+      </div>
+
+      <div class="vg-grid" id="vg-grid" aria-live="polite"></div>
+      <p class="vg-empty" id="vg-empty" hidden>Ningún videojuego coincide con tu búsqueda. Prueba con otro título o cambia de categoría.</p>
+    </div>
+  </main>
+
+  <!-- expediente -->
+  <div id="vg-modal" hidden>
+    <div class="vg-box" role="dialog" aria-modal="true" aria-labelledby="vg-mn">
+      <button class="vg-x" id="vg-x" aria-label="Cerrar">✕</button>
+      <button class="vg-nv l" id="vg-pv" aria-label="Juego anterior">‹</button>
+      <button class="vg-nv r" id="vg-nx" aria-label="Juego siguiente">›</button>
+      <div class="vg-mimg"><span id="vg-mfb"></span><img id="vg-mi" alt=""></div>
+      <div class="vg-minfo">
+        <p class="vg-mtag" id="vg-mt"></p>
+        <h3 id="vg-mn"></h3>
+        <p class="vg-mrole" id="vg-mr"></p>
+        <p class="vg-mdesc" id="vg-md"></p>
+        <dl class="vg-facts" id="vg-mf"></dl>
+        <div class="vg-stats" id="vg-ms"></div>
+        <button class="vg-trailer" id="vg-tr">Ver tráiler</button>
+      </div>
+    </div>
+  </div>
+
+    <!-- tráiler del juego -->
+  <div id="vg-vm" hidden>
+    <div class="vg-vbox">
+      <button id="vg-vx" aria-label="Cerrar">✕</button>
+      <h4 id="vg-vt"></h4>
+      <video id="vg-vv" controls playsinline></video>
+      <div id="vg-vmm" hidden>
+        <p>Todavía no hay tráiler guardado para este juego. Añade el vídeo en <b>video/videojuegos/</b> con el nombre de su id.</p>
+        <a id="vg-vy" target="_blank" rel="noopener">Buscar el tráiler en YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pie">
+    <p class="wet">Sangre y Celuloide</p><small>Proyecto de fans</small>
+  </footer>
+
+  <script src="js/videojuegos.js"></script>
+</body>
+</html>

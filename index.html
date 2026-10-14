@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sangre y Celuloide | Cine de terror y gore</title>
+  <!-- Fuentes: Rubik Wet Paint, Special Elite, Cinzel, Cormorant Garamond, Bebas Neue y Barlow -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Special+Elite&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="loader">
+    <p class="wet">Sangre y Celuloide</p>
+    <div class="barra"><i></i></div><small>Encendiendo el proyector...</small>
+  </div>
+  <header id="top" class="cab">
+    <div class="cab-bar"><a class="cab-logo" href="#peliculas"><img src="img/terror-logo.png" alt="Sangre y Celuloide"
+          onerror="this.outerHTML='<span class=&quot;brand&quot;>Sangre y Celuloide</span>'"></a>
+      <button id="burger" class="burger" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+      <nav class="cab-links" aria-label="Principal">
+  <button class="nl" data-m="pelis" aria-expanded="false">Películas</button>
+  <button class="nl" data-m="pers" aria-expanded="false">Personajes</button>
+  <button class="nl" data-m="ser" aria-expanded="false">Series</button>
+  <button class="nl" data-m="vj" aria-expanded="false">Videojuegos</button>
+  <button class="nl" data-m="lib" aria-expanded="false">Libros</button>
+  <button class="nl" data-m="prod" aria-expanded="false">Productoras</button>
+  <button class="nl" data-m="mapa" aria-expanded="false">Mapa</button>
+  <button class="nl" data-m="cont" aria-expanded="false">Contacto</button>
+</nav>
+    </div>
+    <div id="mega">
+      <div class="mega-in"></div>
+    </div>
+  </header>
+  <section id="peliculas" class="escaparate">
+    <div id="sbg" class="show-bg">
+      <div class="bgl"></div>
+      <div class="bgl"></div>
+    </div>
+    <div class="show-info">
+      <h1 id="st" class="wet"></h1>
+      <div id="sm" class="meta"></div>
+      <p id="ss"></p>
+      <div class="botones"><a id="sv" class="btn-sangre" href="#">Ver el asesino</a><button id="sl" class="btn-lista">+
+          Mi lista</button></div>
+    </div>
+    <div class="show-rail" id="rail" aria-label="Películas"></div>
+  </section>
+
+
+
+
+
+<section id="villanos" class="as" aria-label="Asesinos">
+
+  <!-- PARTE DE ARRIBA: héroe con el fondo que cambia (pestañas / hover) -->
+  <div class="as-top">
+    <div class="as-bg" aria-hidden="true">
+      <div class="asl"></div>
+      <div class="asl"></div>
+    </div>
+
+    <div class="as-wrap">
+      <header class="as-hero reveal">
+        <p class="as-crumb"><a href="#peliculas">Inicio</a> <span>&gt;</span> <b>Asesinos</b></p>
+        <h2 class="as-title" aria-label="Asesinos">Asesinos</h2>
+        <p class="as-sub">Mentes perturbadas. Historias reales.</p>
+        <p class="as-txt">Explora los casos más escalofriantes de la historia. Asesinos en serie, criminales notorios y
+          mentes retorcidas que marcaron el mundo del terror.</p>
+        <a class="as-btn" href="#as-cases">Descubrir asesinos <span aria-hidden="true">→</span></a>
+      </header>
+    </div>
+  </div>
+
+  <!-- PARTE DE ABAJO: casos destacados con su fondo propio -->
+  <div class="as-bottom" id="as-cases">
+    <div class="as-botbg" aria-hidden="true"></div>
+
+    <div class="as-wrap as-cases">
+      <div class="as-bar">
+        <h3><i></i>Casos destacados</h3>
+        <nav class="as-tabs" id="as-tabs" aria-label="Categorías de asesinos">
+          <button class="on" data-t="todos">Todos</button>
+          <button data-t="serie">Asesinos en serie</button>
+          <button data-t="famosos">Criminales famosos</button>
+          <button data-t="reales">Casos reales</button>
+          <button data-t="pelis">Películas / Inspiración</button>
+        </nav>
+      </div>
+
+      <div class="as-row">
+        <div class="as-list" id="as-list" aria-live="polite"></div>
+        <p class="as-quote">Algunos<br>asesinos<br><b>nunca</b><br><em>mueren...</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- SERIES: las capas de fondo están en la sección, no en el panel -->
+  <section id="series" class="seccion">
+    <div class="sec-bg">
+      <div class="sbgl"></div>
+      <div class="sbgl"></div>
+    </div>
+    <div class="container-fluid px-lg-5">
+      <h2 class="wet">Series de miedo</h2>
+      <p class="sub">Elige una serie con las flechas o pulsando su tarjeta. Mira su resumen, sus episodios, sus tráilers
+        y series parecidas.</p>
+      <div class="swrap"><button class="sarr l" data-d="-1" aria-label="Serie anterior">‹</button>
+        <div id="sstrip"></div><button class="sarr r" data-d="1" aria-label="Serie siguiente">›</button>
+      </div>
+      <div id="spanel" class="spanel">
+        <div class="stabs" role="tablist"><button class="on" data-tab="res">Resumen</button><button
+            data-tab="eps">Episodios</button><button data-tab="tr">Tráilers</button><button
+            data-tab="sim">Similares</button></div>
+        <div id="sbody"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTORAS (nueva sección, el fondo cambia con cada productora) ===== -->
+  <section id="productoras" class="pr" aria-label="Productoras de cine de terror">
+    <div class="pr-bg" aria-hidden="true">
+      <div class="prl"></div>
+      <div class="prl"></div>
+    </div>
+
+    <!-- decoración: foco, carrete y claqueta (solo CSS) -->
+    <div class="pr-decor" aria-hidden="true">
+      <span class="pr-lamp"></span>
+      <span class="pr-reel"></span>
+      <span class="pr-clap"></span>
+    </div>
+
+    <div class="pr-wrap">
+      <header class="pr-head reveal">
+        <p class="pr-kicker">Grandes estudios</p>
+        <h2 class="pr-title" aria-label="Productoras de cine de terror">
+          <span class="pr-l">Productoras</span>
+          <span class="pr-l">de cine <em class="pr-t2">de terror</em></span>
+        </h2>
+        <i class="pr-brush" aria-hidden="true"></i>
+        <p class="pr-sub">Estudios que hacen que el miedo siga vivo.<br>Descubre sus historias, sus creadores y sus
+          películas.</p>
+      </header>
+
+      <div class="pr-stage" id="pr-stage">
+        <button class="pr-arr l" id="pr-prev" aria-label="Productora anterior">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 5l-7 7 7 7" />
+          </svg>
+        </button>
+        <div class="pr-viewport">
+          <div class="pr-track" id="pr-track"></div>
+        </div>
+        <button class="pr-arr r" id="pr-next" aria-label="Productora siguiente">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="pr-skull" aria-hidden="true"><i></i><span>☠</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- FONDO 1 -->
+  <div class="fondo-solo fondo-miedo" role="img" aria-label="Imagen de ambiente de terror"></div>
+
+  <!-- JAMES WAN -->
+  <section id="jameswan" class="seccion">
+    <div class="container">
+      <h2 class="wet">James Wan</h2>
+      <p class="sub">El director que devolvió el miedo a las salas.</p>
+      <div class="row g-5 align-items-center reveal">
+        <div class="col-lg-5">
+          <figure class="wan-foto"><span class="wet">James Wan</span><img src="img/jameswan.jpg" alt="James Wan"
+              onerror="this.remove()"></figure>
+        </div>
+        <div class="col-lg-7 wan-txt">
+          <p>Nacido en Malasia en 1977 y criado en Australia, James Wan abrió el terror del siglo XXI con
+            <b>Saw</b>, una película pequeña que acabó siendo una saga enorme.</p>
+          <p>Después llegaron <b>Insidious</b> y <b>Expediente Warren</b>: casas encantadas, demonios y sustos
+            construidos con paciencia, que llenaron las salas y marcaron a toda una generación de directores.</p>
+          <ul class="wan-films">
+            <li><b>Saw</b><span>2004</span></li>
+            <li><b>Dead Silence</b><span>2007</span></li>
+            <li><b>Insidious</b><span>2010</span></li>
+            <li><b>Expediente Warren</b><span>2013</span></li>
+            <li><b>Malignant</b><span>2021</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FONDO 2 -->
+  <div class="fondo-solo fondo-aterrador" role="img" aria-label="Imagen de ambiente aterrador"></div>
+
+  <!-- ===== VIDEOJUEGOS DE TERROR (fondo y textos de la derecha cambian con cada juego) ===== -->
+  <section id="videojuegos" class="vj" aria-label="Videojuegos de terror">
+    <!-- iconos reutilizables -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="vj-i-cal" viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4M8 14h2M12 14h2M16 14h.01" /></symbol>
+        <symbol id="vj-i-game" viewBox="0 0 24 24"><path d="M6.5 8h11a4.5 4.5 0 0 1 4.4 3.6l.9 5a2.4 2.4 0 0 1-4 2.2L16 16.5H8l-2.8 2.3a2.4 2.4 0 0 1-4-2.2l.9-5A4.5 4.5 0 0 1 6.5 8z" /><path d="M8 10.5v4M6 12.5h4" /><circle cx="15.5" cy="11.5" r=".7" /><circle cx="17.5" cy="13.5" r=".7" /></symbol>
+        <symbol id="vj-i-skull" viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-8 8c0 2.6 1.2 4.2 3 5.3V20h10v-3.7c1.8-1.1 3-2.7 3-5.3a8 8 0 0 0-8-8z" /><circle cx="9" cy="11.5" r="1.8" /><circle cx="15" cy="11.5" r="1.8" /><path d="M10 20v-2.5M12 20v-2.5M14 20v-2.5" /></symbol>
+        <symbol id="vj-i-brain" viewBox="0 0 24 24"><path d="M11 4.5A3 3 0 0 0 6 6.5a3 3 0 0 0-2 5 3 3 0 0 0 1.5 4.7A3 3 0 0 0 11 18.5z" /><path d="M13 4.5a3 3 0 0 1 5 2 3 3 0 0 1 2 5 3 3 0 0 1-1.5 4.7A3 3 0 0 1 13 18.5z" /><path d="M11 9H9M13 9h2M11 14H9.5M13 14h1.5" /></symbol>
+        <symbol id="vj-i-knife" viewBox="0 0 24 24"><path d="M5 21l4.5-4.5M9.5 16.5L8 13C9.5 8 14 4 20 3c-1 6-5 10.5-10 12z" /></symbol>
+      </defs>
+    </svg>
+
+    <div class="vj-bg" aria-hidden="true">
+      <div class="vjl"></div>
+      <div class="vjl"></div>
+    </div>
+    <div class="vj-blood" aria-hidden="true"></div>
+
+    <div class="vj-wrap">
+      <div class="vj-top">
+        <!-- izquierda: título fijo -->
+        <header class="vj-head reveal">
+          <p class="vj-kicker">Videojuegos <i>✦</i></p>
+          <h2 class="vj-title" aria-label="Videojuegos de terror">De terror</h2>
+          <p class="vj-tag"><span>✦</span> Juega <b>·</b> Sobrevive <b>·</b> Siente el miedo</p>
+          <p class="vj-intro">Los videojuegos de terror no solo se juegan... se sienten. Explora nuestra selección de
+            los mejores títulos del género, desde clásicos atemporales hasta nuevas pesadillas.</p>
+        </header>
+
+        <div class="vj-spacer" aria-hidden="true"></div>
+
+        <!-- derecha: cambia con cada videojuego -->
+        <aside class="vj-feat" id="vj-feat" aria-live="polite">
+          <p class="vj-fk"><span>Destacado</span><i></i></p>
+          <h3 class="vj-ft" id="vj-t"></h3>
+          <p class="vj-fd" id="vj-d"></p>
+          <ul class="vj-meta">
+            <li><svg class="vj-ic"><use href="#vj-i-cal" /></svg><span id="vj-fecha"></span></li>
+            <li><svg class="vj-ic"><use href="#vj-i-game" /></svg><span id="vj-plat"></span></li>
+            <li><svg class="vj-ic"><use href="#vj-i-skull" /></svg><span id="vj-gen"></span></li>
+          </ul>
+          <button class="vj-play" id="vj-play" aria-label="Ver tráiler"><span class="vj-pc"></span><em>Ver tráiler</em></button>
+        </aside>
+      </div>
+
+      <div class="vj-stage" id="vj-stage">
+        <button class="pr-arr l" id="vj-prev" aria-label="Videojuego anterior">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 5l-7 7 7 7" />
+          </svg>
+        </button>
+        <div class="vj-viewport">
+          <div class="vj-track" id="vj-track"></div>
+        </div>
+        <button class="pr-arr r" id="vj-next" aria-label="Videojuego siguiente">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="vj-band">
+        <p class="vj-quote">“El miedo también se juega”</p>
+        <ul class="vj-feats">
+          <li><svg class="vj-ic"><use href="#vj-i-game" /></svg><span>Clásicos<br>que marcan época</span></li>
+          <li><svg class="vj-ic"><use href="#vj-i-skull" /></svg><span>Nuevas pesadillas<br>cada año</span></li>
+          <li><svg class="vj-ic"><use href="#vj-i-brain" /></svg><span>Historias que<br>te atrapan</span></li>
+          <li><svg class="vj-ic"><use href="#vj-i-knife" /></svg><span>Atmósferas<br>inolvidables</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+<!-- ===== LA HISTORIA DEL TERROR (línea del tiempo, un solo fondo) ===== -->
+<section id="historia" class="hs" aria-label="La historia del terror">
+  <div class="hs-bg" aria-hidden="true"></div>
+
+  <div class="hs-wrap">
+    <!-- cabecera -->
+    <header class="hs-head reveal">
+      <div class="hs-tw">
+        <p class="hs-kick">Línea del tiempo</p>
+        <h2 class="hs-title" aria-label="La historia del terror">
+          <span class="hs-t1">La historia del</span>
+          <span class="hs-t2">Terror</span>
+        </h2>
+        <i class="hs-brush" aria-hidden="true"></i>
+        <p class="hs-sub">Del cine mudo a la era digital,<br>el terror siempre ha evolucionado.</p>
+      </div>
+      <p class="hs-intro">Un viaje por los momentos clave que convirtieron el miedo en un género eterno. Desde sus
+        raíces hasta las pesadillas más modernas, el terror nunca ha dejado de reinventarse.</p>
+    </header>
+
+    <!-- línea del tiempo (se pinta con JS) -->
+    <div class="hs-stage" id="hs-stage">
+      <button class="pr-arr l" id="hs-prev" aria-label="Época anterior">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6"
+          stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
+      </button>
+      <div class="hs-viewport">
+        <div class="hs-track" id="hs-track" aria-live="polite"></div>
+      </div>
+      <button class="pr-arr r" id="hs-next" aria-label="Época siguiente">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6"
+          stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7" /></svg>
+      </button>
+    </div>
+
+    <!-- tira de película -->
+    <div class="hs-end" aria-hidden="true">
+      <p class="hs-never"><i></i><span>El terror nunca muere</span><i></i></p>
+    </div>
+  </div>
+  <div class="hs-film" aria-hidden="true"><div class="hs-reel" id="hs-reel"></div></div>
+</section>
+
+
+
+
+<!-- ===== EL MAPA DEL TERROR (fondo fijo; solo cambia la tarjeta central) ===== -->
+<section id="mapa" class="mp" aria-label="El mapa del terror">
+  <div class="mp-bg" aria-hidden="true"></div>
+
+  <div class="mp-wrap">
+    <header class="mp-head reveal">
+      <p class="mp-kick">Lugares malditos</p>
+      <h2 class="mp-title" aria-label="El mapa del terror"><span>El Mapa del</span><b>Terror</b></h2>
+      <p class="mp-lema">Hay lugares que no deberían existir. Pero siguen en el mapa.</p>
+      <p class="mp-txt">Desde casas embrujadas hasta pueblos abandonados, en esta sección encontrarás los lugares más
+        escalofriantes del mundo. ¿Te atreves a visitarlos?</p>
+      <a class="mp-btn" href="#mp-list">Explora el mapa <span aria-hidden="true">→</span></a>
+    </header>
+
+    <!-- tarjeta central (cambia) -->
+    <article class="mp-card" id="mp-card" aria-live="polite">
+      <div class="mp-photo">
+        <span class="mp-fb" id="mp-fb"></span>
+        <img id="mp-img" alt="">
+        <div class="mp-chip"><span class="mp-pin"></span>
+          <div><b id="mp-n"></b><small id="mp-p"></small></div>
+        </div>
+        <span class="mp-stamp">Lugar<br>real</span>
+        <button class="mp-play" id="mp-play" aria-label="Ver vídeo"><i></i><span>Ver vídeo</span></button>
+      </div>
+      <div class="mp-body">
+        <p id="mp-d"></p>
+        <a class="mp-more" id="mp-more" target="_blank" rel="noopener">Ver detalle <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <!-- lista derecha (los demás lugares) -->
+    <ul class="mp-list" id="mp-list"></ul>
+
+    <ul class="mp-band">
+      <li><svg viewBox="0 0 24 24"><path d="M2 20l6-10 4 6 3-4 7 8z" /></svg><span><b>Lugares reales</b><small>Historias que han ocurrido.</small></span></li>
+      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 3v18M3 12h18M15.5 8.5l-7 7" /></svg><span><b>Leyendas urbanas</b><small>Lo que la gente cuenta.</small></span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 21V10a7 7 0 0 1 14 0v11l-3-2-2 2-2-2-2 2-2-2z" /><circle cx="9.5" cy="10" r="1" /><circle cx="14.5" cy="10" r="1" /></svg><span><b>Fenómenos paranormales</b><small>No todo tiene explicación.</small></span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" /></svg><span><b>Explora el mapa</b><small>Atrévete a descubrirlos.</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Modal del vídeo del Mapa (ponlo junto a los otros modales, antes de los <script>) -->
+<div id="mp-modal" hidden>
+  <div class="vj-mbox">
+    <button id="mp-mx" aria-label="Cerrar">✕</button>
+    <h4 id="mp-mt"></h4>
+    <video id="mp-mv" controls playsinline></video>
+    <p id="mp-mm" hidden>Todavía no hay vídeo para este lugar. Añádelo en la ruta indicada en main.js.</p>
+  </div>
+</div>
+
+
+
+
+<!-- ===== LIBROS DE TERROR (fondo de arriba + fondo de abajo) ===== -->
+<section id="libros" class="lb" aria-label="Libros de terror">
+
+  <!-- PARTE DE ARRIBA -->
+  <div class="lb-top">
+    <div class="lb-topbg" aria-hidden="true"></div>
+    <div class="lb-wrap">
+      <header class="lb-hero reveal">
+        <p class="lb-crumb"><a href="#peliculas">Inicio</a> <span>&gt;</span> <b>Libros</b></p>
+        <h2 class="lb-title" aria-label="Libros de terror">
+          <span class="lb-t1">Libros de</span>
+          <b class="lb-t2">Terror</b>
+        </h2>
+        <p class="lb-txt">Historias que te mantienen despierto. Descubre los mejores libros de terror, desde clásicos
+          del género hasta nuevas voces que te harán pasar miedo de verdad.</p>
+        <a class="lb-btn" href="#lb-destacados">Explorar libros <span aria-hidden="true">→</span></a>
+      </header>
+    </div>
+  </div>
+
+  <!-- PARTE DE ABAJO -->
+  <div class="lb-bottom" id="lb-destacados">
+    <div class="lb-botbg" aria-hidden="true"></div>
+
+    <!-- columna izquierda: destacados -->
+    <div class="lb-wrap lb-feat">
+      <h3 class="lb-bar"><i></i>Destacados</h3>
+      <div class="lb-list" id="lb-list"></div>
+    </div>
+
+    <!-- columna derecha: tarjeta de arriba a abajo, pegada al borde -->
+    <aside class="lb-side">
+      <p class="lb-quote">Algunos libros<br>no solo se leen...<br>se viven.</p>
+      <a class="lb-all" href="#libros">Ver todos los libros <span aria-hidden="true">→</span></a>
+    </aside>
+  </div>
+
+
+</section>
+
+
+  <!-- ARCHIVO DE PESADILLAS -->
+  <section id="archivo" class="ap" aria-label="Archivo de Pesadillas: leyendas del terror">
+    <div class="ap-bg" aria-hidden="true">
+      <div class="apl"></div>
+      <div class="apl"></div>
+    </div>
+
+    <div class="ap-wrap">
+      <div class="ap-left">
+        <h2 class="ap-title">
+          <span class="ap-t1">Archivo de</span>
+          <span class="ap-t2">Pesadillas</span>
+        </h2>
+        <p class="ap-tag"><i></i><span>Leyendas del terror</span><i></i></p>
+
+        <div class="ap-cards">
+          <div class="ap-track" id="ap-track"></div>
+        </div>
+        <div class="ap-dots" id="ap-dots"></div>
+      </div>
+
+      <div class="ap-hero" aria-hidden="true">
+        <div class="ap-fig"><span class="ap-fb" id="ap-fb"></span><img id="ap-img" alt=""></div>
+      </div>
+
+      <div class="ap-info" id="ap-info">
+        <button class="ap-play" id="ap-play" aria-label="Ver clip del personaje"><span></span></button>
+        <div class="ap-txt">
+          <h3 id="ap-n"></h3>
+          <p class="ap-meta" id="ap-m"></p>
+          <p class="ap-desc" id="ap-d"></p>
+          <div class="ap-prog">
+            <div class="ap-bar"><i id="ap-bar"></i></div><small id="ap-time">00:00 / 00:08</small>
+          </div>
+        </div>
+        <button class="ap-next" id="ap-next" aria-label="Siguiente personaje">›</button>
+      </div>
+    </div>
+  </section>
+
+
+<section id="ranking" class="rk" aria-label="Ranking de fans">
+  <div class="rk-bg" aria-hidden="true"></div>
+
+  <div class="rk-wrap">
+    <!-- izquierda: título + menú -->
+    <aside class="rk-left">
+      <h2 class="rk-title" aria-label="Ranking de fans"><span>Ranking de</span><b>Fans</b></h2>
+      <p class="rk-lema">Las obras más queridas por la comunidad</p>
+      <p class="rk-txt">Aquí están los favoritos de nuestra comunidad. Películas, series, videojuegos y mucho más... ¡Tú
+        también puedes votar!</p>
+      <nav class="rk-menu" id="rk-menu" aria-label="Categorías del ranking">
+        <button class="on" data-c="todos"><i>🏆</i>Todos</button>
+        <button data-c="pelicula"><i>🎞</i>Películas</button>
+        <button data-c="serie"><i>📺</i>Series</button>
+        <button data-c="juego"><i>🎮</i>Videojuegos</button>
+        <button data-c="libro"><i>📖</i>Libros</button>
+        <button data-c="personaje"><i>👤</i>Personajes</button>
+      </nav>
+      <p class="rk-quote">“El terror también se vive en comunidad”</p>
+    </aside>
+
+    <!-- centro: top 3 (se pinta con JS) -->
+    <div class="rk-main" id="rk-main" aria-live="polite"></div>
+
+    <!-- derecha: top 5 -->
+    <aside class="rk-top">
+      <h3>Top 5 general</h3>
+      <ol id="rk-list"></ol>
+      <a class="rk-more" href="#ranking">Ver top 50 →</a>
+    </aside>
+
+    <ul class="rk-band">
+      <li><span class="rk-bi">🔥</span><span><b>Lo más votado</b><small>Las favoritas de la comunidad.</small></span></li>
+      <li><span class="rk-bi">👥</span><span><b>Tú también cuentas</b><small>Vota, comparte y haz que tu historia también esté en el ranking.</small></span></li>
+      <li><span class="rk-bi">📅</span><span><b>Nuevos rankings</b><small>Cada mes, nuevas categorías y sorpresas.</small></span></li>
+      <li class="rk-bq">“El terror nos une”</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+<!-- index.html: BORRA la sección vieja <section id="contacto" class="seccion oscura"> ... </section> y pon esto en su lugar -->
+
+<section id="contacto" class="ct" aria-label="Contacto">
+  <div class="ct-bg" aria-hidden="true"></div>
+
+  <div class="ct-wrap">
+    <!-- izquierda -->
+    <div class="ct-left">
+      <p class="ct-kick">Contacto</p>
+      <h2 class="ct-title" aria-label="¿Te falta una película?"><span>¿Te falta una</span><b>Película?</b></h2>
+      <p class="ct-txt">Dinos qué película, personaje o productora echas en falta, o si has visto algún error. Leemos
+        todo.</p>
+
+      <ul class="ct-ico">
+        <li><svg viewBox="0 0 24 24"><path d="M3 9h18v11H3zM3 9l2-5 4 1-2 4M9 5l4 1-2 4M13 6l4 1-2 4M17 7l3 1-1 3" /></svg>Películas<br>que faltan</li>
+        <li><svg viewBox="0 0 24 24"><use href="#vj-i-skull" /></svg>Personajes<br>olvidados</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 21V9l4-3 4 3v12M12 21V6l4-3 4 3v15M2 21h20M7 13h2M7 17h2M15 11h2M15 15h2" /></svg>Productoras<br>que incluir</li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 3L2 20h20zM12 10v5M12 17.5v.5" /></svg>Errores<br>o sugerencias</li>
+      </ul>
+
+      <div class="ct-note">
+        <h3><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 7 9-7" /></svg><span>Tu opinión<br>también da miedo</span></h3>
+        <p>Gracias a vuestras sugerencias el archivo sigue creciendo. Si tienes alguna propuesta, duda o quieres
+          colaborar, escríbenos.</p>
+      </div>
+      <p class="ct-quote">“El terror también se construye contigo”</p>
+    </div>
+
+    <!-- derecha: papel con el formulario -->
+    <div class="ct-paper">
+      <form id="cform" class="ct-form">
+        <h3>Envíanos tu propuesta</h3>
+        <i class="ct-brush" aria-hidden="true"></i>
+        <div class="ct-row">
+          <div><label for="c-n">Nombre <b>*</b></label><input id="c-n" class="campo" placeholder="Tu nombre" required></div>
+          <div><label for="c-e">Email <b>*</b></label><input id="c-e" type="email" class="campo" placeholder="tu@email.com" required></div>
+        </div>
+        <label for="c-tipo">Motivo <b>*</b></label>
+        <select id="c-tipo" class="campo" required>
+          <option value="" disabled selected>Selecciona un motivo</option>
+        <option>Falta una película</option>
+<option>Falta un personaje</option>
+<option>Falta una productora</option>
+<option>Falta un videojuego</option>
+<option>Falta un libro</option>
+<option>Reportar un error</option>
+<option>Colaborar</option>
+        </select>
+        <label for="c-m">Mensaje <b>*</b></label>
+        <textarea id="c-m" rows="5" class="campo" placeholder="Cuéntanos qué quieres proponer..." required></textarea>
+        <label class="ct-chk"><input type="checkbox" required> <span>He leído y acepto la <a href="#">política de privacidad</a> <b>*</b></span></label>
+        <button class="ct-send" type="submit">Enviar mensaje
+          <svg viewBox="0 0 24 24"><path d="M21 3L3 11l7 3 3 7zM10 14l11-11" /></svg></button>
+        <p id="cok" class="ct-ok" hidden>Recibido. Gracias por ayudar a que el archivo crezca.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <footer class="pie">
+    <p class="wet">Sangre y Celuloide</p><small>Proyecto de fans · HTML, CSS, JS, Tailwind y Bootstrap</small>
+  </footer>
+  <div id="tmodal" hidden>
+    <div class="tm-box"><button id="tm-x" aria-label="Cerrar">✕</button>
+      <h4 id="tm-t"></h4><video id="tm-v" controls playsinline></video>
+      <p id="tm-m" hidden></p><a id="tm-y" target="_blank" rel="noopener">Buscar el tráiler en YouTube</a>
+    </div>
+  </div>
+
+  <!-- Modal del clip -->
+  <div id="ap-modal" hidden>
+    <div class="ap-mbox">
+      <button id="ap-mx" aria-label="Cerrar">✕</button>
+      <h4 id="ap-mt"></h4>
+      <video id="ap-mv" controls playsinline></video>
+      <p id="ap-mm" hidden>Todavía no hay clip para este personaje. Añade el vídeo en la ruta indicada en main.js.</p>
+    </div>
+  </div>
+
+  <!-- Modal del tráiler de videojuegos -->
+  <div id="vj-modal" hidden>
+    <div class="vj-mbox">
+      <button id="vj-mx" aria-label="Cerrar">✕</button>
+      <h4 id="vj-mt"></h4>
+      <video id="vj-mv" controls playsinline></video>
+      <div id="vj-mm" hidden>
+        <p>Todavía no hay tráiler guardado para este juego. Añade el vídeo en la ruta indicada en main.js.</p>
+        <a id="vj-my" target="_blank" rel="noopener">Buscar el tráiler en YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/series.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
